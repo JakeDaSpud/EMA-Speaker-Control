@@ -7,13 +7,125 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:id="@+id/RootVerticalLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
+        <ToggleButton
+            android:id="@+id/allToggleButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOff="@string/parent_all_off"
+            android:textOn="@string/parent_all_on" />
+
+        <LinearLayout
+            android:id="@+id/centerSubwooferHLay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <ToggleButton
+                android:id="@+id/centerToggleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textOff="@string/parentchild_center_off"
+                android:textOn="@string/parentchild_center_on" />
+
+            <ToggleButton
+                android:id="@+id/subwooferToggleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textOff="@string/parentchild_subwoofer_off"
+                android:textOn="@string/parentchild_subwoofer_on" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/HorizontalLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ToggleButton
+                    android:id="@+id/frontToggleButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textOff="@string/parentchild_front_off"
+                    android:textOn="@string/parentchild_front_on" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ToggleButton
+                        android:id="@+id/frontLeftToggleButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textOff="@string/child_left_off"
+                        android:textOn="@string/child_left_on" />
+
+                    <ToggleButton
+                        android:id="@+id/frontRightToggleButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textOff="@string/child_right_off"
+                        android:textOn="@string/child_right_on" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ToggleButton
+                    android:id="@+id/rearToggleButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textOff="@string/parentchild_rear_off"
+                    android:textOn="@string/parentchild_rear_on" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ToggleButton
+                        android:id="@+id/rearLeftToggleButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textOff="@string/child_left_off"
+                        android:textOn="@string/child_left_on" />
+
+                    <ToggleButton
+                        android:id="@+id/rearRightToggleButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textOff="@string/child_right_off"
+                        android:textOn="@string/child_right_on" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

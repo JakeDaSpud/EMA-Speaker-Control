@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">SpeakerControl</string>
+
+    <string name="parent_all_on">All: On</string>
+    <string name="parent_all_off">All: Off</string>
+
+    <string name="parentchild_center_on">Center: On</string>
+    <string name="parentchild_center_off">Center: Off</string>
+
+    <string name="parentchild_subwoofer_on">Subwoofer: On</string>
+    <string name="parentchild_subwoofer_off">Subwoofer: Off</string>
+
+    <string name="parentchild_front_on">Front: On</string>
+    <string name="parentchild_front_off">Front: Off</string>
+
+    <string name="parentchild_rear_on">Rear: On</string>
+    <string name="parentchild_rear_off">Rear: Off</string>
+
+    <string name="child_left_on">Left: On</string>
+    <string name="child_left_off">Left: Off</string>
+
+    <string name="child_right_on">Right: On</string>
+    <string name="child_right_off">Right: Off</string>
+
 </resources>
