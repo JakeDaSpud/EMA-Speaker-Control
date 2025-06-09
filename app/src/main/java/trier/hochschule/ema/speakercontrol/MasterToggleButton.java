@@ -1,6 +1,8 @@
 package trier.hochschule.ema.speakercontrol;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.ToggleButton;
 
@@ -13,6 +15,7 @@ public class MasterToggleButton extends androidx.appcompat.widget.AppCompatToggl
 
     final List<ToggleButton> slaves = new ArrayList<>();
     boolean initialised = false;
+    private boolean isDisabledSlaves;
 
     public MasterToggleButton(Context context) {
         super(context);
@@ -20,12 +23,23 @@ public class MasterToggleButton extends androidx.appcompat.widget.AppCompatToggl
     }
 
     public MasterToggleButton(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        initialised = true;
+        this(context, attrs, android.R.attr.buttonStyleToggle);;
     }
 
     public MasterToggleButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+
+        // Using this SO post as reference
+        // https://stackoverflow.com/questions/33163042/reading-android-attributes-on-my-custom-view
+        TypedArray a = context.getTheme().obtainStyledAttributes(
+                attrs,
+                R.styleable.MasterToggleButton,
+                defStyleAttr,
+                0
+        );
+
+        isDisabledSlaves = a.getBoolean(R.styleable.MasterToggleButton_disableSlaves, false);
+
         initialised = true;
     }
 
@@ -35,6 +49,9 @@ public class MasterToggleButton extends androidx.appcompat.widget.AppCompatToggl
         for (int i = 0; i < slaves.length; i++) {
             this.slaves.add(slaves[i]);
         }
+
+        // If isDisabledSlaves, then the isClickable of children should be false
+        setDisabledSlaves(this.isDisabledSlaves);
     }
 
     /// Removes all slaves from slaves List
@@ -56,4 +73,17 @@ public class MasterToggleButton extends androidx.appcompat.widget.AppCompatToggl
         }
 
     }
+
+    public boolean isDisableSlaves() {
+        return this.isDisabledSlaves;
+    }
+
+    public void setDisabledSlaves(boolean disable) {
+        this.isDisabledSlaves = disable;
+
+        for (ToggleButton tb : slaves) {
+            tb.setClickable(!this.isDisabledSlaves);
+        }
+    }
+
 }
